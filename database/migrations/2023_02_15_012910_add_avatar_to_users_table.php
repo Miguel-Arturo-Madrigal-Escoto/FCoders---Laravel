@@ -13,7 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('avatar')->after('email_verified_at')->nullable();
+            // $table->addColumn('string', 'avatar', ['length' => 255, 'after' => 'email_verified_at'])->nullable();
+            
+        });
     }
 
     /**
@@ -23,6 +27,8 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('avatar');
+        });
     }
 };
