@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nombre', 100)->nullable(false);  // varchar(100)
             $table->text('descripcion')->nullable(false);  // text
+            $table->text('categoria');
             $table->timestamps();
         });
     }
